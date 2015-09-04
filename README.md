@@ -6,9 +6,7 @@ Wikihub is a small library that allows GitHub to be used as a wiki. It provides 
 Usage
 -----
 
-Copy the [`wikihub.min.js`](http://raw.githubusercontent.com/mushishi78/wikihub/master/dist/wikihub.min.js) file from the dist folder into your project.
-
-This exposes the `wikihub` object globally.
+Copy the [`wikihub.min.js`](http://raw.githubusercontent.com/mushishi78/wikihub/master/dist/wikihub.min.js) file from the dist folder into your project. This exposes the `wikihub` object globally.
 
 ### Load
 
@@ -49,6 +47,10 @@ wikihub
     /* ...something went wrong */
   });
 ```
+
+### Token
+
+Wikihub uses an oAuth token to authenticate with GitHub. This can either be created using [oAuth web flow](https://developer.github.com/v3/oauth/#web-application-flow) or by asking your users to [create a token using Github's website](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token).
 
 Contributing
 ------------
