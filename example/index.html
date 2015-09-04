@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      input, button, textarea {
+        display: block;
+        margin: 10px;
+        padding: 5px 10px;
+      }
+    </style>
+    <script src='./form2js.js'></script>
+    <script src='../dist/wikihub.min.js'></script>
+  </head>
+  <body>
+    <form>
+      <input type='text' name='token'  placeholder='Token'  />
+      <input type='text' name='owner'  placeholder='Owner'  />
+      <input type='text' name='repo'   placeholder='Repo'   />
+      <input type='text' name='branch' placeholder='Branch' />
+      <input type='text' name='path'   placeholder='Path'   />
+      <button type='button' onclick='load()'>Load</button>
+      <textarea name='text' rows='15' cols='80'></textarea>
+      <input type='text' name='message' placeholder='Message' />
+      <button type='button' onclick='save()'>Save</button>
+    </form>
+    <script>
+      var form = document.getElementsByTagName('form')[0];
+      var textArea = document.getElementsByTagName('textarea')[0];
+      restore();
+
+      function load() {
+        wikihub.load(backup(form2js(form)))
+          .then(function(text) { textArea.value = text; })
+          .catch(function(err) { console.warn(err); });
+      }
+
+      function save() {
+        wikihub.save(backup(form2js(form)))
+          .then(function() { console.log('Saved!'); })
+          .catch(function(err) { console.warn(err); });
+      }
+
+      function backup(values) {
+        localStorage.setItem('values', JSON.stringify(values));
+        return values;
+      }
+
+      function restore() {
+        var values = JSON.parse(localStorage.getItem('values'));
+
+        ['token', 'owner', 'repo', 'branch', 'path', 'text', 'message'].forEach(function(prop) {
+          document.getElementsByName(prop)[0].value = values[prop] || '';
+        });
+      }
+    </script>
+  </body>
+</html>
