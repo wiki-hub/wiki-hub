@@ -2,10 +2,5 @@
 
 export default function atob(str) {
 	str = str.replace(/\s/g, '');
-	str = window ? window.atob(str) : nodeAtob(str);
-	return decodeURIComponent(escape(str));
-}
-
-function nodeAtob(str) {
-	return new Buffer(str, 'base64').toString('binary');
+	return !window ? str : decodeURIComponent(escape(window.atob(str)));
 }
