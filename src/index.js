@@ -37,11 +37,12 @@ const getUsersRepos = github => github.repos().then(parseRepos);
 const getRepoForks = (github, opts) => github.forks(opts).then(parseRepos);
 const findFork = origin => ([repos, forks]) => firstInBoth([origin, ...forks], repos);
 const forkIfNotFound = (github, opts) => name => name || github.fork(opts).then(parseRepo);
+const write = (github, opts) => fork => github.write(fork).then(returns(fork));
 
 function createForkOpts(opts) {
   return forkName => {
     const [owner, repo] = forkName.split('/')
-    return { owner, repo, branch: opts.forkBranch };
+    return { ...opts, owner, repo, branch: opts.forkBranch };
   }
 }
 
@@ -51,15 +52,8 @@ function ensureBranch(github, opts) {
 
     return github
       .listBranches(fork)
-      .then(branches => branches.includes(opts.forkBranch) || github.branch(branchOpts))
+      .then(branches => branches.includes(fork.branch) || github.branch(branchOpts))
       .then(returns(fork));
-  };
-}
-
-function write(github, opts) {
-  return (fork) => {
-    const writeOpts = { ...opts, ...fork };
-    return github.write(writeOpts).then(returns(fork));
   };
 }
 

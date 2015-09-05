@@ -23,7 +23,7 @@
       <input type='text' name='message' placeholder='Message' />
       <input type='text' name='forkBranch' placeholder='Fork Branch' />
       <input type='text' name='title' placeholder='Pull Request Title' />
-      <input type='text' name='body' placeholder='Pull Request Body' />
+      <textarea name='body' cols='80' placeholder='Pull Request Body'></textarea>
       <button type='button' onclick='save()'>Save</button>
     </form>
     <script>
@@ -51,7 +51,8 @@
       function restore() {
         var values = JSON.parse(localStorage.getItem('values'));
 
-        ['token', 'owner', 'repo', 'branch', 'path', 'text', 'message'].forEach(function(prop) {
+        ['token', 'owner', 'repo', 'branch', 'path', 'text', 'message',
+         'forkBranch', 'title', 'body'].forEach(function(prop) {
           document.getElementsByName(prop)[0].value = values[prop] || '';
         });
       }
