@@ -6,12 +6,12 @@ Wikihub is a small library that allows GitHub to be used as a wiki. It provides 
 Example
 -------
 
-[Wikihub Jekyll Example](https://mushishi78.github.io/wikihub)
+[Jekyll Collaborative Example](https://wiki-hub.github.io/jekyll-collab)
 
 Usage
 -----
 
-Copy the [`wikihub.min.js`](http://raw.githubusercontent.com/mushishi78/wikihub/master/dist/wikihub.min.js) file from the dist folder into your project. This exposes the `wikihub` object globally.
+Copy the [`wikihub.min.js`](http://raw.githubusercontent.com/wiki-hub/wiki-hub/master/dist/wikihub.min.js) file from the dist folder into your project. This exposes the `wikihub` object globally.
 
 ### Load
 
@@ -66,7 +66,7 @@ Wikihub uses an oAuth token to authenticate with GitHub. This can either be crea
 Contributing
 ------------
 
-1. [Fork it](https://github.com/mushishi78/wikihub/fork)
+1. [Fork it](https://github.com/wiki-hub/wiki-hub/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
