@@ -31,8 +31,8 @@ export default function GHPromiser(token, GitHub = _GitHub) {
 
     repos: denodeify(github.getUser().repos),
 
-    pullRequest: denodeify(({ owner, repo, branch, message, head, body }, callback) => {
-      const pull = { title: message, base: branch, head, body };
+    pullRequest: denodeify(({ owner, repo, branch, message, head, title, body }, callback) => {
+      const pull = { base: branch, head, title, body };
       github.getRepo(owner, repo).createPullRequest(pull, callback);
     }),
 
