@@ -7,6 +7,7 @@ Example
 -------
 
 [Jekyll Anonymous Example](https://github.com/wiki-hub/jekyll-anon)
+
 [Jekyll Collaborative Example](https://github.com/wiki-hub/jekyll-collab)
 
 Usage
