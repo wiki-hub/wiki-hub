@@ -4,7 +4,6 @@ import denodeify from 'denodeify';
 export default function GHPromiser(token, GitHub = _GitHub) {
   const github = new GitHub({ token, auth: 'OAUTH_TOKEN' });
 
-
   return {
     contents: denodeify(({ owner, repo, branch, path }, callback) => {
       github.getRepo(owner, repo).contents(branch, path, callback);
