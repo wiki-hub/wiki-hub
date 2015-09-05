@@ -43,7 +43,8 @@ wikihub
     branch: 'master',
     path: '_posts/2015-08-01-whatever-happened-happened.md',
     text: 'This is what this post should really be about.',
-    message: 'Changed the begining to be clearer'
+    message: 'Changed the begining to be clearer',
+    forkBranch: 'cool-changes'
   })
   .then(function() {
     /* ...changes have been commited and a PR made */
