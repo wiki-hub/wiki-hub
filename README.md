@@ -6,7 +6,7 @@ Wikihub is a small library that allows GitHub to be used as a wiki. It provides 
 Example
 -------
 
-[Jekyll Collaborative Example](https://wiki-hub.github.io/jekyll-collab)
+[Jekyll Collaborative Example](https://github.com/wiki-hub/jekyll-collab)
 
 Usage
 -----
