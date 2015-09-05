@@ -5,7 +5,7 @@
   "description": "Simple wiki for GitHub API",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mushishi78/wikihub.git"
+    "url": "https://github.com/wiki-hub/wiki-hub.git"
   },
   "devDependencies": {
     "babel": "^5.8.21",
