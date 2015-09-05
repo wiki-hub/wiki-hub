@@ -39,7 +39,7 @@
 
       function save() {
         wikihub.save(backup(form2js(form)))
-          .then(function() { console.log('Saved!'); })
+          .then(function(pull) { console.log(pull); })
           .catch(function(err) { console.warn(err); });
       }
 

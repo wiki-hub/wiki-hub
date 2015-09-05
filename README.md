@@ -44,8 +44,8 @@ wikihub
     path: '_posts/2015-08-01-whatever-happened-happened.md',
     text: 'This is what this post should really be about.'
   })
-  .then(function() {
-    /* ...changes have been commited and a PR made */
+  .then(function(pull) {
+    /* ...changes have been commited */
   })
   .catch(function(err) {
     /* ...something went wrong */

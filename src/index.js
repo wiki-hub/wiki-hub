@@ -32,12 +32,12 @@ const returns = value => () => value;
 const firstInBoth = (a, b) => a.find(x => b.includes(x));
 const parseRepo = repo => repo.full_name;
 const parseRepos = repos => repos.map(parseRepo);
-const parsePulls = pulls => pulls.map(pull => pull.head.label);
 const getUsersRepos = github => github.repos().then(parseRepos);
 const getRepoForks = (github, opts) => github.forks(opts).then(parseRepos);
 const findFork = origin => ([repos, forks]) => firstInBoth([origin, ...forks], repos);
 const forkIfNotFound = (github, opts) => name => name || github.fork(opts).then(parseRepo);
 const write = (github, opts) => fork => github.write(fork).then(returns(fork));
+const findPull = (pulls, head) => pulls.find(pull => pull.head.label === head);
 
 function createForkOpts(opts) {
   return forkName => {
@@ -63,7 +63,6 @@ function pullRequest(github, opts) {
 
     return github
       .listPulls(opts)
-      .then(parsePulls)
-      .then(pulls => pulls.includes(head) ? null : github.pullRequest({ ...opts, head }));
+      .then(pulls => findPull(pulls, head) || github.pullRequest({ ...opts, head }));
   };
 }
