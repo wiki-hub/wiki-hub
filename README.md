@@ -3,6 +3,8 @@ Wikihub
 
 Wikihub is a small library that allows GitHub to be used as a wiki. It provides two methods, `load` which loads the text from a file on GitHub and `save` which commits changes to a file, creating a fork for the repository if necessary, and submits a pull request to the repo's origin.
 
+![wikihub-piclite-gif-crop](https://cloud.githubusercontent.com/assets/583842/9761287/1bf37096-56fc-11e5-9081-93268ec386c6.gif)
+
 Examples
 --------
 
